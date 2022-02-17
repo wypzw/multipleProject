@@ -1,0 +1,515 @@
+$fontcolor:#DAE7FA;
+$fontcolor1:#0EF7FC;
+$fontcolor2:#FFFE01;
+$eChartLineColor:#DAE7FA;
+$fontsize1:2.2vh;//标题字体
+$fontsize2:1.8vh;//副标题字体
+$fontsize3:1.6vh;//常规字体
+$fontsize4:1.4vh;//小号字体
+$fontsize5:1.2vh;//特小号字体
+// display:flex兼容
+// 子元素-平均分栏
+@mixin flex($flex:1) {
+  -webkit-box-flex: $flex;      // OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $flex;         // OLD - Firefox 19- */
+  -webkit-flex: $flex;          // Chrome */
+  -ms-flex: $flex;              // IE 10 */
+  flex: $flex;                  // NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+// 父元素-横向排列（主轴）
+@mixin d-flex-h{
+  display: box;              // OLD - Android 4.4- */
+
+  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      // TWEENER - IE 10 */
+  display: -webkit-flex;     // NEW - Chrome */
+  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  // 09版
+  -webkit-box-orient: horizontal;
+  // 12版
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+// 父元素-水平居中（主轴是横向才生效）
+@mixin flex-hc($content:center){
+  // 09版 */
+  -webkit-box-pack: $content;
+  // 12版 */
+  -webkit-justify-content: $content;
+  -moz-justify-content: $content;
+  -ms-justify-content: $content;
+  -o-justify-content: $content;
+  justify-content: $content;
+}
+// 父元素-纵向排列（主轴）
+@mixin d-flex-v(){
+  display: box;              // LD - Android 4.4- */
+
+  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      // TWEENER - IE 10 */
+  display: -webkit-flex;     // NEW - Chrome */
+  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  // 09版 */
+  -webkit-box-orient: vertical;
+  // 12版 */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+
+.board-container {
+  background: url("@/assets/images/dataPanl/gykb/body.png");
+  .el-col {
+    text-align: center;
+    height: 100%;
+  }
+
+  .header{
+    height:8vh;
+    position: relative;
+    .small-box{
+      width: 160px;
+      height: 30px;
+      line-height: 30px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 2px;
+      font-size: 16px;
+      background: url("@/assets/images/dataPanl/gykb/icon-9.png") center right no-repeat;
+      background-size: 160px;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .text1{
+    line-height: 20px;
+    text-align: left;
+    color: white;
+    float: left;
+    position: relative;
+    margin-left: 2vh;
+    div{
+      display: inline-block;
+      width: 100%;
+    }
+    .number{
+      font-size: $fontsize3;
+      color: #03A9F4;
+      .percent{
+        margin-left: 6px;
+        font-size:$fontsize4;
+        color: white;
+      }
+    }
+    .sum{
+      color: yellow;
+    }
+  }
+  .contain{
+    height:92vh;
+    .el-row{
+      margin: 0px 0px!important;
+    }
+    .left-screen{
+      width: 100%;
+      height: 100%;
+      background: url("@/assets/images/dataPanl/gykb/mian-video.png") top left no-repeat;
+      background-size: 100% 100%;
+      padding:0.7vh;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .con-right{
+      .sjdc{
+        height: 20%;
+        box-sizing: border-box;
+        padding:1vh;
+        .navtitle{
+          position: absolute;
+          top: 3vh;
+          right: 2vw;
+          color: rgb(182, 220, 246);
+          font-size: $fontsize3;
+        }
+        .el-col{
+          margin-top: 0.3vh;
+          height: 50%;
+          box-sizing: border-box;
+        }
+      }
+      .bottom-box{
+        height: 80%;
+        margin-top: 0;
+        padding-top: 2vh;
+        .main-col{
+          .small-titie{
+            font-size: 2vh;
+            line-height: 4vh;
+            top: 0vh;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .mapscreen{
+      width:100%;
+      height:59vh;
+      position:relative;
+    }
+    .hyscreen{
+      width:100%;
+      height:60vh;
+      position:relative;
+    }
+    .hyTitle{
+      color: #fffeff;
+      text-align: center;
+      margin-top: 5vh;
+    }
+    .sjdc{
+      text-align: center;
+      background: url("@/assets/images/dataPanl/gykb/main-1.png") top left no-repeat;
+      background-size: 100% 100%;
+      .main-1{
+        height: 100%;
+        width:100%;
+        background: url("@/assets/images/dataPanl/gykb/icon-1.png") top left no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        .img{
+          clear: both;
+          position: absolute;
+          left: 1vw;
+          margin: auto;
+          top: 0;
+          bottom: 0;
+          box-sizing: border-box;
+          width: auto;
+          height: auto;
+          img{
+            width: auto;
+            height: 4vh;
+            position: relative;
+            top: 1.5vh;
+          }
+        }
+        .textbox{
+          width: 100%;
+          left: 3vw;
+          position: absolute;
+          height: 100%;
+          overflow: hidden;
+          .comtext{
+            float: left;
+            margin: 0px;
+            padding: 0px;
+            padding:1vh;
+            p{
+              font-size: $fontsize5;
+              line-height: 2;
+              padding: 0px;
+              margin: 0px;
+              color:$fontcolor;
+            }
+            .number{
+              line-height: 1.2;
+              font-size: $fontsize2;
+              span{
+                font-size: $fontsize4;
+                line-height: 1.2;
+                font-weight:normal;
+              }
+            }
+          }
+          .text1{
+            width: 60%;
+            .number{
+              color:$fontcolor1;
+              font-weight:bold;
+            }
+          }
+          .text2{
+            width: 30%;
+            .number{
+              color:$fontcolor2;
+              font-weight:bold;
+            }
+          }
+        }
+      }
+      .el-col{
+        position: relative;
+        height: 70%;
+        padding: 0 30px!important;
+        div{
+        }
+      }
+    }
+    .data-box{
+      padding-top: 20px;
+      .el-col{
+        padding: 0;
+        overflow: hidden;
+        text-overflow:ellipsis;
+      }
+      .main-col{
+        padding: 0 20px;
+        .list-col{
+          display: inline-block;
+          padding: 5px 0;
+          padding-right: 20px;
+          background: url("@/assets/images/dataPanl/gykb/icon-5.png") top left no-repeat;
+          background-size: 100% 100%;
+          .text1{
+            color: $fontcolor;
+            top: 0px;
+            .name{
+              display: inline-block;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;
+            }
+            .number{
+            }
+          }
+        }
+      }
+      .main-box{
+        width: 100%;
+        height: 100%;
+        float: left;
+        .data-list:nth-child(odd){
+          .number{
+            color: #fffd00;
+          }
+        }
+        .data-list:nth-child(even){
+          .number{
+            color: #11d3eb;
+          }
+        }
+      }
+      .main-2{
+        background: url("@/assets/images/dataPanl/gykb/main-2.png") top left no-repeat;
+        background-size: 100% 100%;
+        position:relative;
+      }
+      .szsj{
+        overflow:hidden;
+        .el-col{
+          width: auto;
+          min-width: 19%;
+          padding-left: 0px!important;
+          padding-right: 0px!important;
+          margin-left: 3.8px;
+          text-align: center;
+          color: #bbcce6;
+          display: inline-block;
+          font-size:10px;
+          -webkit-transform-origin-x: 0;
+          -webkit-transform: scale(0.90);
+          background: url("@/assets/images/dataPanl/gykb/szsj.png") left top no-repeat;
+          background-size: 100% 80%;
+          cursor: pointer;
+          overflow: visible;
+          span{
+            position: relative;
+            top: -6%;
+          }
+        }
+        .el-col:hover{
+          background: url("@/assets/images/dataPanl/gykb/szsjSelected.png") left top no-repeat;
+          background-size: 100% 100%;
+        }
+        .active{
+          background: url("@/assets/images/dataPanl/gykb/szsjSelected.png") left top no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+      .main-3{
+        background: url("@/assets/images/dataPanl/gykb/main-2.png") top left no-repeat;
+        background-size: 100% 100%;
+        box-sizing: border-box;
+        position:relative;
+        .miaosutext{
+          color: #ABB8C9;
+          text-align: left;
+          letter-spacing: 1px;
+          margin-left: 1vh;
+          margin-top: 1vh;
+          font-size: $fontsize3;
+          span{
+            font-size: 2vh;
+            color: #19BFCA;
+            margin: 0 0.5vh;
+          }
+        }
+        .listbox{
+          @include flex(1);
+          height: 55vh;
+          display: flex;
+          box-sizing:border-box;
+          @include d-flex-v;
+          padding: 1vh;
+          .data-list{
+            box-sizing:border-box;
+            padding-top: 1.3vh;
+            width:100%;
+            overflow: hidden;
+            @include flex(1);
+            h2{
+              @include flex(1);
+              color:$fontcolor;
+              font-size: $fontsize3;
+              text-align: left;
+              letter-spacing: 1px;
+              font-weight: normal;
+              line-height: 1;
+              margin: 1.1vh 0;
+            }
+            .spanbox{
+              @include flex(4);
+              .list{
+                width:30%;
+                float:left;
+                margin: 0 1vh 0 0;
+                .list-col{
+                  padding: 0.3vh;
+                  margin: 0;
+                  height: 100%;
+                  width:100%;
+                  .text1{
+                    line-height: 1;
+                    padding: 0 1vh;
+                    margin: 0.5vh 0;
+                    p{
+                      padding:0;
+                      margin: 0;
+                      font-size: $fontsize3;
+                      line-height: 1;
+                      color:#D7E6FD;
+                      -webkit-transform-origin-x: 0;
+                      -webkit-transform: scale(0.80);
+                    }
+                    .number{
+                      color: #fffd00;
+                      font-size: $fontsize2;
+                      font-weight:bold;
+                      .percent{
+                        font-size:$fontsize3;
+                        color:#D7E6FD;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .main-4{
+        background: url("@/assets/images/dataPanl/gykb/main-4.png") top left no-repeat;
+        background-size: 100% 100%;
+        position:relative;
+      }
+      .main-5{
+        background: url("@/assets/images/dataPanl/gykb/main-4.png") top left no-repeat;
+        background-size: 100% 100%;
+        position:relative;
+      }
+    }
+    .small-titie{
+      height: 5.8vh;
+      color: #fff;
+      background: -webkit-linear-gradient(#ffffff, #58a2cb);     /* 背景色渐变 */
+      -webkit-background-clip: text;         /* 规定背景的划分区域 */
+      -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
+      letter-spacing: 2px;
+      position: relative;
+      p{
+        color: #fff;
+        font-size: $fontsize1;
+        line-height: 4vh;
+        top: 0vh;
+        padding: 0px;
+        margin: 0px;
+      }
+    }
+    .main-box3{
+      padding: 1vh;
+      .szsj{
+        height: 6vh;
+        line-height: 1;
+        color: white;
+        width: 100%;
+        font-size: 1.8vh;
+        display: flex;
+        @include d-flex-h;
+        @include flex(1); //传递参数.flex(1);
+        .el-col{
+          position:relative;
+          @include flex(1); //传递参数.flex(1);
+          p{
+            margin: 0;
+            font-size: $fontsize4;
+            line-height: 1.5;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0.6vh;
+            bottom: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+    .main-box4{
+      positon:relative;
+      padding:1vh;
+    }
+    .main-box5{
+      padding:1vh;
+      #we{
+        position:absolute;
+        height:25vh;
+        width: 100%;
+      }
+      .smallcreen{
+        height: 20vh;
+      }
+    }
+    .main-box6{
+      padding:1vh;
+      box-sizing: border-box;
+      .smallcreen{
+        height: 20vh;
+      }
+      #me{
+        position:absolute;
+        height:25vh;
+        width: 100%;
+      }
+    }
+  }
+  .destext{
+    color: #b6dcf6;
+    font-size: 1vh;
+    right: 1vw;
+    top: 3.5vh;
+    position: absolute;
+  }
+}

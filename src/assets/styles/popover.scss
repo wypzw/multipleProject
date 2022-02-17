@@ -1,0 +1,48 @@
+.Collection {
+    .row {
+      margin-top: 20px;
+      .el-col-6 {
+        width: 24%;
+        background: #54aeec;
+        margin-right: 10px;
+        margin-bottom: 10px;
+
+        padding-top: 10px;
+        text-align: center;
+        .item {
+          .img {
+            border: none;
+            border-radius: 0px;
+          }
+        }
+        
+      }
+    }
+    
+  }
+
+.el-popover{
+    background: #54aeec;
+    border: none;
+    border-radius: 0px;
+    .sub-items-content{
+        .subItem{
+          text-align: center;
+          .img{
+            border: none;
+            border-radius: 0px;
+          }
+        }
+     }
+     
+}
+.el-popover[x-placement^=bottom] .popper__arrow{
+     
+    /*el-popover上边三角下层的颜色---也就是视觉上的边框*/
+    border-bottom-color: #54aeec;
+}
+.el-popover[x-placement^=bottom] .popper__arrow::after{
+ 
+    /*el-popover上边三角表层的颜色---也就是视觉上的角*/
+    border-bottom-color: #54aeec;
+}

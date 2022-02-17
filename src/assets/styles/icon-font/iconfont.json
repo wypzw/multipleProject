@@ -1,0 +1,23 @@
+{
+  "id": "2631400",
+  "name": "七人普",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5328296",
+      "name": "57-向上箭头",
+      "font_class": "-xiangshangjiantou",
+      "unicode": "e733",
+      "unicode_decimal": 59187
+    },
+    {
+      "icon_id": "22451380",
+      "name": "57-向上箭头",
+      "font_class": "-xiangxiajiantou-copy",
+      "unicode": "e734",
+      "unicode_decimal": 59188
+    }
+  ]
+}

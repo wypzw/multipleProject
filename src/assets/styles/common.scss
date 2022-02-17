@@ -1,0 +1,167 @@
+$fontcolor:#DAE7FA;
+$fontcolor1:#0EF7FC;
+$fontcolor2:#FFFE01;
+$fontsize1:2.2vh;//标题字体
+$fontsize2:1.8vh;//副标题字体
+$fontsize3:1.6vh;//常规字体
+$fontsize4:1.4vh;//小号字体
+$fontsize5:1.2vh;//特小号字体
+// display:flex兼容
+// 子元素-平均分栏
+@mixin  flex($flex:1) {
+  -webkit-box-flex: $flex;      // OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: $flex;         // OLD - Firefox 19- */
+  -webkit-flex: $flex;          // Chrome */
+  -ms-flex: $flex;              // IE 10 */
+  flex: $flex;                  // NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+// 父元素-横向排列（主轴）
+@mixin  d-flex-h{
+  display: box;              // OLD - Android 4.4- */
+
+  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      // TWEENER - IE 10 */
+  display: -webkit-flex;     // NEW - Chrome */
+  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  // 09版
+  -webkit-box-orient: horizontal;
+  // 12版
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+}
+// 父元素-水平居中（主轴是横向才生效）
+@mixin  flex-hc($content:center){
+  // 09版 */
+  -webkit-box-pack: $content;
+  // 12版 */
+  -webkit-justify-content: $content;
+  -moz-justify-content: $content;
+  -ms-justify-content: $content;
+  -o-justify-content: $content;
+  justify-content: $content;
+}
+// 父元素-纵向排列（主轴）
+@mixin  d-flex-v(){
+  display: box;              // LD - Android 4.4- */
+
+  display: -webkit-box;      // OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         // OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      // TWEENER - IE 10 */
+  display: -webkit-flex;     // NEW - Chrome */
+  display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+ */
+
+  // 09版 */
+  -webkit-box-orient: vertical;
+  // 12版 */
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+//颜色纵向渐变
+@mixin  linear-gradient($startColor,$endColor){
+
+  $argbStartColor:argb($startColor);
+  $argbEndColor:argb($endColor);
+
+  background-image: -moz-linear-gradient(top,$startColor,$endColor);  /* FF3.6+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -ms-linear-gradient(top,$startColor,$endColor); /* IE10 */
+  background-image: -o-linear-gradient(top,$startColor,$endColor); /* Opera 11.10+ */
+  background-image: linear-gradient(top, $startColor, $endColor);
+}
+//以下属于新增公共样式
+.comtitle{
+  height: 5.8vh;
+  color: #fff;
+  background: -webkit-linear-gradient(#ffffff, #58a2cb);     /* 背景色渐变 */
+  -webkit-background-clip: text;         /* 规定背景的划分区域 */
+  -webkit-text-fill-color: transparent;  /* 防止字体颜色覆盖 */
+  letter-spacing: 2px;
+  position: relative;
+  cursor: pointer;
+  p{
+    color: #fff;
+    font-size: $fontsize1;
+    top: 0vh;
+    padding: 0px;
+    margin: 0px;
+    line-height: 2;
+    top: 0vh;
+    padding: 0;
+    margin: 0;
+  }
+}
+.combutton{
+  div{
+    width:25%;
+    height:4.2vh;
+    float:left;
+    p{
+      font-size:$fontsize4;
+      line-height: 4.2vh;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+.destext{
+  color: #b6dcf6;
+  font-size: $fontsize3;
+}
+.textbox{
+  width: 80%;
+  left: 3vw;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;
+  .comtext{
+    float: left;
+    margin: 0px;
+    padding: 1vh 0;
+    p{
+      font-size: $fontsize5;
+      line-height: 2;
+      padding: 0px;
+      margin: 0px;
+      color:$fontcolor;
+    }
+    .number{
+      line-height: 1.2;
+      font-size: $fontsize2;
+      span{
+        font-size: $fontsize4;
+        line-height: 1.2;
+        font-weight:normal;
+      }
+    }
+  }
+  .text1{
+    width: 60%;
+    .number{
+      color:$fontcolor1;
+      font-weight:bold;
+    }
+  }
+  .text2{
+    width: 30%;
+    .percent{
+      color:$fontcolor2;
+      font-weight:bold;
+    }
+  }
+}
+.showorhidebox{//前进后退按钮样式
+  top:0;
+  width: 20vh;
+  height: 10vh;
+  position: absolute;
+  z-index: 100;
+}

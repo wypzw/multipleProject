@@ -1,0 +1,102 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+.my-card{
+  .el-card__header{
+    padding: 10px 0;
+    span{
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .icon{
+      margin-right: 6px;
+      color: #5cb4da;
+    }
+  }
+  .el-card__body{
+    padding: 10px 0;
+  }
+  .el-step__head{
+    font-size: 15px;
+  }
+}
+
+.my-step{
+  cursor: pointer;
+  .el-step__description{
+    color: black;
+  }
+  .el-step__line.is-vertical{
+    left: 13px;
+  }
+}
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@mixin pct($pct) {
+  width: #{$pct};
+  position: relative;
+  margin: 0 auto;
+}
+@mixin triangle($width, $height, $color, $direction) {
+  $width: $width/2;
+  $color-border-style: $height solid $color;
+  $transparent-border-style: $width solid transparent;
+  height: 0;
+  width: 0;
+  @if $direction==up {
+    border-bottom: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  }
+  @else if $direction==right {
+    border-left: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  }
+  @else if $direction==down {
+    border-top: $color-border-style;
+    border-left: $transparent-border-style;
+    border-right: $transparent-border-style;
+  }
+  @else if $direction==left {
+    border-right: $color-border-style;
+    border-top: $transparent-border-style;
+    border-bottom: $transparent-border-style;
+  }
+}
+/*滚动条样式*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 30px;
+  background-color: #999;
+  -webkit-border-radius: 7px;
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+  border: 2px solid #fff;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: inherit;
+  -webkit-border-radius: 3px;
+}

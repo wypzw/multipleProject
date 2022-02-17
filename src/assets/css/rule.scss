@@ -1,0 +1,125 @@
+$primaryHover:#017BCE;
+$primary:#026CB4;
+$fontColorW:#fff;
+$fontFamily:Arial,
+"微软雅黑";
+$fontSizeTitle:1.8rem;
+$fontSizeNav:1.6rem; //导航栏标题字体大小
+$fontSize:1.4rem;
+$fontSizeSmall:1.2rem;
+$backGroundColor:rgba(16,112,137,1);
+$backGroundColorDeep:rgba(4,27,67,0.5);
+
+$normalFontColor:rgba(255,255,255,1); //左边列表字颜色
+$leftborderColor:#1b4284; //左边边框颜色
+$panelTitleBg:linear-gradient(0deg,#0b1647,#1e3e98);//面板头部背景
+$panelContentBg:rgba(7,22,60, .9);//面板内容背景
+$listBorderBottom:rgba(21, 31, 82, 1);//列表底部边框
+$inputBackgroundColor:rgba(7, 12, 47, .55);//输入框、下拉框背景色
+$fontColor:rgba(37, 88, 169, 1); //表单内容、文字内容颜色、突出地方加粗，选中项的字颜色
+$informationTextColor:rgba(21, 104, 248, 1);//描述及目录字体颜色
+::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 3px;
+  background-color:#96d2f3;
+}
+::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(50,161,180,0.08);
+  background: rgba(63, 83, 163, 0.34)!important;
+}
+::-webkit-scrollbar-corner {
+  background: none;
+}
+.mapControlItem{
+  background:#fff;
+  .title{
+    background-color: #e4e7ed;
+    color: #409EFF;
+    padding:10px;
+  }
+}
+// 下拉框三角形颜色
+.el-popper[x-placement^="bottom"] .popper__arrow::after {
+  border-bottom-color:#0079c5;
+  top: 0;
+}
+.el-select-dropdown{
+  border: 1px solid rgba(0, 127, 231, 1);
+  background-color: #104d8f;
+  .el-select-dropdown__item{
+    color: #2558a9;
+  }
+  .el-select-dropdown__empty{
+    background-color:rgba(16,77,143,1);
+  }
+ 
+  .el-scrollbar__bar.is-vertical>div{
+    width: 3px !important;
+  }
+  .is-horizontal{
+    display: none;
+  }
+  .el-select-dropdown__item.is-disabled{
+    color: #2558a9bf;
+  }
+  .el-select-dropdown__item.is-disabled:hover{
+    background: linear-gradient(90deg, rgba(12, 23, 53, 0.2), rgba(33, 58, 151, 0.2), rgba(12, 23, 53, 0.2));
+  }
+  .el-select-dropdown__item.hover, .el-select-dropdown__item:hover{
+    background: linear-gradient(90deg, rgba(12, 23, 53, 0.2), rgba(33, 58, 151, 0.2), rgba(12, 23, 53, 0.2));
+  }
+}
+  // 设置输入框placeholder的值的颜色
+  .el-input{
+    ::-webkit-input-placeholder { /* WebKit browsers */
+      color:$fontColor;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+      color:$fontColor;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+      color:$fontColor;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+      color:$fontColor;
+    }
+    .el-input__suffix {
+      color: $fontColor;
+      .el-input__suffix-inner {
+        border-color: none;
+        .el-icon-circle-close:before {
+          color: $fontColor;
+        }
+      }
+    }
+  }
+@media screen and (min-width: 1200px) and (max-width: 1400px){
+  ::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    background-color: rgba(63, 83, 163, 0.34);
+  }
+}
+@media screen and (max-width: 1200px){
+  ::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 2px;
+    background-color: rgba(63, 83, 163, 0.34);
+  }
+}
