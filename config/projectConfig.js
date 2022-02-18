@@ -3,7 +3,7 @@ const path = require('path');
 function resolve (dir) {
   return path.join(__dirname, dir)
 }
-console.log("路劲为"+resolve('../src/pages/'+projectName.name+'/'))
+console.log("当前启动项目为："+resolve('../src/pages/'+projectName.name+'/'))
 var titles=""
 switch (projectName.name) {
   case "test1":

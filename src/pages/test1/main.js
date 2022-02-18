@@ -7,7 +7,12 @@ import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import api from './api/index'
-// Vue.use(echarts);
+//自定义指令
+import Directives from '$pages/dirictive/index'
+Vue.use(Directives)
+//自定义过滤器
+import Filters from '$pages/fillters/index'
+Vue.use(Filters)
 Object.defineProperty(Vue.prototype, '$api', {value: api})
 // 全局事件总线
 window.EventBus = new Vue();
@@ -15,17 +20,6 @@ window.EventBus = new Vue();
 Vue.use(ElementUI);
 // 关闭生产模式下给出的提示
 Vue.config.productionTip = false;
-// 生产环境错误日志
-if (process.env.NODE_ENV === "production") {
-  Vue.config.errorHandler = function(err, vm) {
-    console.log(err, window.location.href);
-    errLog.pushLog({
-      err,
-      url: window.location.href,
-      vm
-    });
-  };
-}
 new Vue({
   router,
   store,
