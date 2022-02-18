@@ -1,7 +1,7 @@
 /*
  *@Description: 常用方法
  *@Author:  Wang zhang
- *@Date: 2022-01-18 10:52:20
+ *@Date: 2021-01-18 10:52:20
 */
 // 获取url里的参数
 export function getUrlParam(name) {
